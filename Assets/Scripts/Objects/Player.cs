@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using static UnityEngine.EventSystems.EventTrigger;
-using static UnityEngine.Rendering.DebugUI;
 using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour, IGiftObjectParent {
@@ -32,14 +31,11 @@ public class Player : MonoBehaviour, IGiftObjectParent {
     private BaseGiftParentObject selectedParent;
     private GiftObject giftObject;
 
-    [SerializeField]private int score;
+    [SerializeField] private int score;
     [SerializeField] private int stamina;
-    [SerializeField]private int blood;
+    [SerializeField] private int blood;
     private int highScore;
     [SerializeField] private PlayerAbilitiesSO abilitiesSO;
-
-    [SerializeField] private GameObject shield;
-    [SerializeField] private GameObject[] trail;
 
     private void Awake() {
         if (Instance != null) {
@@ -50,7 +46,7 @@ public class Player : MonoBehaviour, IGiftObjectParent {
     }
 
     private void Start() {
-       // GameManager.Instance.IsPlayerDead = false;
+        GameManager.Instance.IsPlayerDead = false;
 
         LoadPlayerData();
         gameInput.OnInteractAction += GameInput_OnInteractAction;
@@ -193,7 +189,7 @@ public class Player : MonoBehaviour, IGiftObjectParent {
                     Debug.Log("No ability selected.");
                     break;
             }
-            //stamina = 0;
+            stamina = 0;
         } else {
             Debug.Log("Not enough stamina!");
         }
@@ -201,7 +197,6 @@ public class Player : MonoBehaviour, IGiftObjectParent {
 
     private void ActivateShieldAbility() {
         Debug.Log("Shield activated!");
-        shield.SetActive(true);
         StartCoroutine(ShieldEffectCoroutine(7f));
     }
 
@@ -212,7 +207,6 @@ public class Player : MonoBehaviour, IGiftObjectParent {
             elapsedTime += 0.1f;
             yield return new WaitForSeconds(0.1f);
         }
-        shield.SetActive(false);
         Debug.Log("Shield deactivated!");
     }
 
@@ -247,9 +241,6 @@ public class Player : MonoBehaviour, IGiftObjectParent {
         Debug.Log("Speed boost activated!");
         float originalSpeed = moveSpeed;
         moveSpeed *= 1.5f;
-        foreach (GameObject a in trail) {
-            a.SetActive(true);
-        }
         StartCoroutine(ResetSpeedAfterTime(originalSpeed, 10f));
     }
 
@@ -257,9 +248,6 @@ public class Player : MonoBehaviour, IGiftObjectParent {
         yield return new WaitForSeconds(duration);
         moveSpeed = originalSpeed;
         Debug.Log("Speed boost deactivated!");
-        foreach(GameObject a in trail) {
-            a.SetActive(false);
-        }
     }
 
     private void SetSelectedParent(BaseGiftParentObject selectedParent) {
@@ -339,7 +327,7 @@ public class Player : MonoBehaviour, IGiftObjectParent {
     }
 
     public void SavePlayerData() {
-        if(highScore < score) highScore = score;
+        if (highScore < score) highScore = score;
         PlayerPrefs.SetInt("HighScore", highScore);
         PlayerPrefs.SetInt("Blood", blood);
         PlayerPrefs.Save();

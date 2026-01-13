@@ -325,12 +325,17 @@ PrefabInstance:
     - target: {fileID: 4236146311725180596, guid: a1a1c9aafad5efc43b882a0655a9bf7f,
         type: 3}
       propertyPath: m_Name
-      value: Player walk shield
+      value: Player with shaders
       objectReference: {fileID: 0}
     - target: {fileID: 4236146311725180596, guid: a1a1c9aafad5efc43b882a0655a9bf7f,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309979815669647797, guid: a1a1c9aafad5efc43b882a0655a9bf7f,
+        type: 3}
+      propertyPath: blood
+      value: 1000000
       objectReference: {fileID: 0}
     - target: {fileID: 7309979815669647797, guid: a1a1c9aafad5efc43b882a0655a9bf7f,
         type: 3}
@@ -6926,8 +6931,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1332720499}
-  m_Follow: {fileID: 1332720499}
+  m_LookAt: {fileID: 20667889}
+  m_Follow: {fileID: 20667889}
   m_Lens:
     FieldOfView: 27
     OrthographicSize: 5
@@ -11086,12 +11091,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 94394714}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1332720499 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 143025664693030304, guid: a1a1c9aafad5efc43b882a0655a9bf7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5963244078550239936}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1336758391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12627,17 +12626,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cc11913bc5fb9ee4b9acc78a3339cb11,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 30.000002
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc11913bc5fb9ee4b9acc78a3339cb11,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 30.000002
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc11913bc5fb9ee4b9acc78a3339cb11,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 30.000002
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc11913bc5fb9ee4b9acc78a3339cb11,
         type: 3}
